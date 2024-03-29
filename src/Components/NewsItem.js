@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import logo from '../logo.svg';
 
-export class NewsItem extends Component {
-    render() {
-        let { title, description , imageUrl , newsUrl , author , date} = this.props
+const NewsItem = (props) => {
+    
+        let { title, description , imageUrl , newsUrl , author , date} = props
         let demoImage = logo;
         return (
             <>
@@ -13,12 +13,12 @@ export class NewsItem extends Component {
                         <h5 className="card-title">{title}...</h5>
                         <p className="card-text">{description.slice(0,20)}...</p>
                         <p>By {author?author:'Unknown'} on {new Date(date).toGMTString()}</p>
-                        <a href={newsUrl} target="_blank" className="btn btn-primary">Read more...</a>
+                        <a href={newsUrl} target="_blank" rel="norefer" className="btn btn-primary">Read more...</a>
                     </div>
                 </div>
             </>
         )
-    }
+    
 }
 
 export default NewsItem
